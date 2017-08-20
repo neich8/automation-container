@@ -15,16 +15,21 @@ public class GoogleTest {
     WebDriver d;
     @BeforeMethod
     public void beforeMethod() {
+        System.out.println("Setting chrome options");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--disable-gpu");
+        System.out.println("Setting chrome.driver location to " +  System.getProperty("user.dir"));
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/chromedriver");
+        System.out.println("Building chrome");
         d =  new ChromeDriver(chromeOptions);
+        System.out.println("Going to google.com");
         d.get("https://google.com");
     }
 
     @Test
     public void passingTest() {
+        System.out.println("Starting test");
         WebElement el = d.findElement(By.cssSelector("#hplogo"));
         Assert.assertTrue(el.isDisplayed());
     }
