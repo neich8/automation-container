@@ -34,4 +34,3 @@ RUN \
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 CMD ["mvn", "test"]
-#COPY entry_point.sh /opt/bin/entry_point.sh
